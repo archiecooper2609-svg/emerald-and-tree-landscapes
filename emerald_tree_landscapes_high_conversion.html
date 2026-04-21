@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Emerald Tree & Landscapes Ltd | Landscaping, Driveways & Tree Work</title>
+  <meta name="description" content="Emerald Tree & Landscapes Ltd. High-end landscaping, driveways, tree work and outdoor transformations. Call now for a free quote." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07140d;
+      --bg-soft: #0b1d13;
+      --card: rgba(14, 31, 21, 0.74);
+      --card-2: rgba(255,255,255,0.06);
+      --line: rgba(255,255,255,0.10);
+      --text: #f5f8f3;
+      --muted: rgba(245,248,243,0.72);
+      --green: #1ed760;
+      --green-2: #5fff9b;
+      --emerald: #0fb66d;
+      --lime: #bfff63;
+      --gold: #ffdd75;
+      --shadow: 0 24px 80px rgba(0,0,0,0.38);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Inter, sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(94,255,155,0.12), transparent 22%),
+        radial-gradient(circle at 90% 0%, rgba(255,221,117,0.10), transparent 18%),
+        radial-gradient(circle at 50% 100%, rgba(30,215,96,0.10), transparent 26%),
+        linear-gradient(180deg, #06120b 0%, #0a1a11 100%);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(calc(100% - 24px), var(--max)); margin: 0 auto; }
+
+    .noise::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .035;
+      background-image:
+        radial-gradient(circle at 25% 25%, white 0 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, white 0 1px, transparent 1px);
+      background-size: 18px 18px;
+      z-index: 0;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: max(10px, env(safe-area-inset-top)) 0 10px;
+      background: linear-gradient(to bottom, rgba(7,20,13,0.88), rgba(7,20,13,0.54));
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1rem;
+      color: #041109;
+      background: linear-gradient(135deg, var(--lime), var(--green-2));
+      box-shadow: 0 12px 34px rgba(94,255,155,0.32);
+    }
+
+    .brand-title {
+      font-family: Syne, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-sub {
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-top: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 40vw;
+    }
+
+    .nav-right { display: flex; gap: 8px; align-items: center; }
+    .chip, .call-mini {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+    }
+    .chip {
+      padding: 11px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .call-mini {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 1.15rem;
+    }
+
+    .hero { padding: 18px 0 20px; position: relative; z-index: 1; }
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 85svh;
+      border-radius: 38px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(120deg, rgba(4,10,7,0.78), rgba(6,18,11,0.58)),
+        url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1600&q=80') center/cover;
+      display: grid;
+      align-items: end;
+      padding: 18px;
+      isolation: isolate;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 85% 12%, rgba(191,255,99,0.24), transparent 18%),
+        radial-gradient(circle at 10% 10%, rgba(94,255,155,0.16), transparent 24%),
+        linear-gradient(180deg, rgba(4,10,7,0.08) 0%, rgba(4,10,7,0.38) 32%, rgba(4,10,7,0.94) 100%);
+      z-index: -1;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .hero-badge {
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: #efffe7;
+      backdrop-filter: blur(14px);
+    }
+
+    .rating-badge {
+      background: linear-gradient(135deg, rgba(191,255,99,0.18), rgba(94,255,155,0.14));
+      border-color: rgba(191,255,99,0.18);
+      color: #f9ffde;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Syne, sans-serif;
+      font-size: clamp(2.7rem, 10vw, 6rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      max-width: 10ch;
+    }
+
+    h1 .glow {
+      display: block;
+      color: var(--lime);
+      text-shadow: 0 0 24px rgba(191,255,99,0.22);
+    }
+
+    .hero-copy {
+      margin: 16px 0 0;
+      max-width: 44rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 18px;
+      padding: 15px 18px;
+      font-size: 0.96rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+    .btn:hover { filter: brightness(1.04); }
+    .btn:active { transform: scale(0.985); }
+
+    .btn-primary {
+      color: #051108;
+      background: linear-gradient(135deg, var(--lime), var(--green-2));
+      box-shadow: 0 18px 40px rgba(94,255,155,0.24);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .pulse-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 22px;
+      padding: 13px 10px;
+      text-align: center;
+      backdrop-filter: blur(14px);
+    }
+
+    .pulse-num {
+      display: block;
+      font-family: Syne, sans-serif;
+      font-size: 1.35rem;
+      color: var(--gold);
+      letter-spacing: -0.04em;
+    }
+
+    .pulse-label {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.74rem;
+      line-height: 1.25;
+    }
+
+    section { padding: 18px 0; position: relative; z-index: 1; }
+
+    .section-head { margin-bottom: 16px; }
+    .eyebrow {
+      display: inline-block;
+      color: var(--green-2);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.76rem;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+    .section-title {
+      margin: 0;
+      font-family: Syne, sans-serif;
+      font-size: clamp(1.95rem, 7vw, 3.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      max-width: 12ch;
+    }
+    .section-sub {
+      margin: 10px 0 0;
+      color: var(--muted);
+      max-width: 44rem;
+      line-height: 1.75;
+    }
+
+    .cards {
+      display: grid;
+      gap: 14px;
+    }
+
+    .service-card, .review-card, .info-card, .showcase, .quote-card {
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .services { grid-template-columns: 1fr; }
+
+    .service-card { padding: 20px; position: relative; }
+    .service-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 16px 0 16px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--lime), transparent 70%);
+      opacity: .85;
+    }
+
+    .service-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+    .service-icon {
+      width: 52px; height: 52px; border-radius: 17px; display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(94,255,155,0.15), rgba(191,255,99,0.10));
+      border: 1px solid rgba(255,255,255,0.08); font-size: 1.45rem; flex-shrink: 0;
+    }
+    .service-title { margin: 2px 0 0; font-size: 1.08rem; font-weight: 800; }
+    .service-copy { margin: 0; color: var(--muted); line-height: 1.7; font-size: 0.95rem; }
+    .tag {
+      display: inline-flex; margin-top: 12px; padding: 8px 11px; border-radius: 999px;
+      background: rgba(30,215,96,0.10); border: 1px solid rgba(30,215,96,0.16); color: #e2ffea;
+      font-size: 0.78rem; font-weight: 700;
+    }
+
+    .split { display: grid; gap: 14px; }
+
+    .showcase {
+      min-height: 320px;
+      background:
+        linear-gradient(180deg, rgba(4,10,7,0.10), rgba(4,10,7,0.48)),
+        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1400&q=80') center/cover;
+      position: relative;
+    }
+
+    .glass-float {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      max-width: 240px;
+      padding: 14px 16px;
+      border-radius: 20px;
+      background: rgba(5,17,9,0.62);
+      border: 1px solid rgba(255,255,255,0.09);
+      backdrop-filter: blur(16px);
+    }
+    .glass-float strong {
+      display: block; font-family: Syne, sans-serif; font-size: 1.25rem; color: var(--gold); letter-spacing: -0.03em;
+    }
+    .glass-float span { color: var(--muted); font-size: 0.82rem; line-height: 1.45; }
+
+    .info-card { padding: 22px; }
+    .info-copy { color: var(--muted); line-height: 1.8; margin: 0 0 12px; }
+    .contact-list { display: grid; gap: 10px; margin-top: 14px; }
+    .contact-link {
+      display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 18px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    }
+    .contact-icon {
+      width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center;
+      background: rgba(94,255,155,0.12); font-size: 1.05rem; flex-shrink: 0;
+    }
+    .contact-small { display: block; color: var(--muted); font-size: 0.82rem; margin-top: 3px; }
+
+    .review-card { padding: 22px; }
+    .stars { color: var(--gold); letter-spacing: 0.08em; margin-bottom: 14px; }
+    .review-text {
+      margin: 0 0 14px; font-family: Georgia, serif; font-size: 1.06rem; line-height: 1.8; color: #fbfff8;
+    }
+    .review-meta { color: var(--muted); font-size: 0.88rem; }
+
+    .quote-card {
+      padding: 22px;
+      background:
+        radial-gradient(circle at top right, rgba(191,255,99,0.12), transparent 20%),
+        linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+    }
+
+    .quote-box {
+      display: grid; gap: 10px; margin-top: 16px;
+    }
+
+    .trust-row {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px;
+    }
+    .trust-chip {
+      padding: 10px 12px; border-radius: 999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.82rem; color: var(--muted); font-weight: 700;
+    }
+
+    .footer-space { height: calc(96px + env(safe-area-inset-bottom)); }
+    .sticky-bar {
+      position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 60;
+      display: grid; grid-template-columns: 1.3fr 1fr; gap: 10px; padding: 10px;
+      border-radius: 24px; background: rgba(5,17,9,0.78); border: 1px solid rgba(255,255,255,0.09);
+      backdrop-filter: blur(18px); box-shadow: 0 22px 60px rgba(0,0,0,0.36);
+    }
+    .sticky-bar .btn { padding: 14px 12px; border-radius: 16px; }
+
+    @media (min-width: 760px) {
+      .wrap { width: min(calc(100% - 40px), var(--max)); }
+      .hero-actions { grid-template-columns: repeat(2, minmax(0, 250px)); }
+      .services { grid-template-columns: repeat(2, 1fr); }
+      .split, .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1040px) {
+      .hero-card { min-height: 760px; padding: 36px; }
+      .services { grid-template-columns: repeat(3, 1fr); }
+      .split { grid-template-columns: 1.1fr 0.9fr; align-items: stretch; }
+      .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+      .section-title { max-width: none; }
+      .sticky-bar { width: min(640px, calc(100% - 24px)); left: 50%; right: auto; transform: translateX(-50%); }
+    }
+  </style>
+</head>
+<body class="noise">
+  <div class="topbar">
+    <div class="wrap nav">
+      <a href="#top" class="brand">
+        <div class="brand-badge">ET</div>
+        <div>
+          <div class="brand-title">Emerald Tree & Landscapes Ltd</div>
+          <div class="brand-sub">Landscaping, driveways, tree work & outdoor transformations</div>
+        </div>
+      </a>
+      <div class="nav-right">
+        <a class="chip" href="#services">Services</a>
+        <a class="call-mini" href="tel:07901008438" aria-label="Call Emerald Tree & Landscapes Ltd">📞</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="hero-card">
+        <div>
+          <div class="hero-badges">
+            <div class="hero-badge rating-badge">4.9 ★ Google Rated</div>
+            <div class="hero-badge">13 Reviews</div>
+            <div class="hero-badge">Free Quotes</div>
+            <div class="hero-badge">Driveways · Trees · Landscaping</div>
+          </div>
+          <h1>Turn your garden into a <span class="glow">showpiece.</span></h1>
+          <p class="hero-copy">A high-conversion website built to feel exciting, premium and unforgettable on both iPhone and desktop. Big visuals, cleaner spacing, stronger trust signals and instant call buttons help attract more clients and make the business look more established.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:07901008438">📞 Call 07901 008438</a>
+            <a class="btn btn-secondary" href="#quote">Get Free Quote</a>
+          </div>
+          <div class="hero-grid">
+            <div class="pulse-card">
+              <span class="pulse-num">4.9</span>
+              <div class="pulse-label">Google rating</div>
+            </div>
+            <div class="pulse-card">
+              <span class="pulse-num">13</span>
+              <div class="pulse-label">Public reviews</div>
+            </div>
+            <div class="pulse-card">
+              <span class="pulse-num">Next day</span>
+              <div class="pulse-label">Fast response</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="services">
+      <div class="section-head">
+        <div class="eyebrow">Services</div>
+        <h2 class="section-title">Built to stop the scroll and win more work.</h2>
+        <p class="section-sub">The layout below makes the business feel premium and easy to trust. It turns every service into something a customer can understand in seconds on their phone.</p>
+      </div>
+      <div class="cards services">
+        <article class="service-card">
+          <div class="service-row">
+            <div class="service-icon">🌳</div>
+            <div><div class="service-title">Tree Work</div></div>
+          </div>
+          <p class="service-copy">Tree cutting, shaping, removal and tidy-up work that instantly makes properties look cleaner, safer and better kept.</p>
+          <span class="tag">Fast and reliable</span>
+        </article>
+        <article class="service-card">
+          <div class="service-row">
+            <div class="service-icon">🪨</div>
+            <div><div class="service-title">Driveways</div></div>
+          </div>
+          <p class="service-copy">Driveway landscaping with sharp edging, stonework and detail that gives homes a much stronger first impression from the street.</p>
+          <span class="tag">Kerb appeal upgrade</span>
+        </article>
+        <article class="service-card">
+          <div class="service-row">
+            <div class="service-icon">🌿</div>
+            <div><div class="service-title">Landscaping</div></div>
+          </div>
+          <p class="service-copy">Garden redesigns, greenery, beds, borders and layout work that turn dull spaces into polished outdoor areas people talk about.</p>
+          <span class="tag">High visual impact</span>
+        </article>
+        <article class="service-card">
+          <div class="service-row">
+            <div class="service-icon">🪵</div>
+            <div><div class="service-title">Railway Sleepers</div></div>
+          </div>
+          <p class="service-copy">Beautiful edging, flower beds and structural garden features using sleepers to add a high-end feel to outdoor spaces.</p>
+          <span class="tag">Stylish and durable</span>
+        </article>
+        <article class="service-card">
+          <div class="service-row">
+            <div class="service-icon">🌼</div>
+            <div><div class="service-title">Flower Beds & Borders</div></div>
+          </div>
+          <p class="service-copy">Soft landscaping and planting layouts that add colour, structure and a more premium finish to the whole garden.</p>
+          <span class="tag">Designed to impress</span>
+        </article>
+        <article class="service-card">
+          <div class="service-row">
+            <div class="service-icon">✨</div>
+            <div><div class="service-title">Complete Garden Refresh</div></div>
+          </div>
+          <p class="service-copy">For customers who want everything pulled together into one clean, polished transformation with one trusted team.</p>
+          <span class="tag">Before and after worthy</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="split">
+        <div class="showcase">
+          <div class="glass-float">
+            <strong>More calls. Better first impression.</strong>
+            <span>This style makes the business feel bigger, cleaner and more premium on first glance.</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="eyebrow">Why this works</div>
+          <h2 class="section-title">It feels exciting without feeling messy.</h2>
+          <p class="info-copy">This design uses bright emerald highlights, bold contrast, stronger typography and cleaner spacing to make the page feel energetic and memorable. On mobile, the sticky call bar keeps the main action visible at all times, which helps turn attention into enquiries.</p>
+          <p class="info-copy">On desktop, the layout feels bigger and more premium, so the business looks more established and more worth trusting.</p>
+          <div class="contact-list">
+            <a class="contact-link" href="tel:07901008438">
+              <div class="contact-icon">📞</div>
+              <div><strong>07901 008438</strong><span class="contact-small">Tap to call now</span></div>
+            </a>
+            <div class="contact-link">
+              <div class="contact-icon">⭐</div>
+              <div><strong>4.9 Google rating</strong><span class="contact-small">Based on 13 public reviews</span></div>
+            </div>
+            <div class="contact-link">
+              <div class="contact-icon">🕗</div>
+              <div><strong>Opens 8am Wednesday</strong><span class="contact-small">Fast quote-ready presentation</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="reviews">
+      <div class="section-head">
+        <div class="eyebrow">Reviews</div>
+        <h2 class="section-title">Social proof that actually sells.</h2>
+        <p class="section-sub">Real review language helps the site feel more believable and gives customers a reason to trust quickly.</p>
+      </div>
+      <div class="cards reviews-grid">
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">“Very reliable and professional company. The staff were polite and hardworking. James and the team did a great job.”</p>
+          <div class="review-meta">darklord · 2 months ago</div>
+        </article>
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">“They worked on my driveway landscaping, and the attention to detail was incredible. Edging, stonework, and greenery all blended perfectly.”</p>
+          <div class="review-meta">Willy Ernser · 6 months ago</div>
+        </article>
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">“Needed a number of trees cut down, and a flower bed constructed. The team came the next day and did a great job.”</p>
+          <div class="review-meta">Mark Nesbitt · 1 year ago</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap" id="quote">
+      <div class="quote-card">
+        <div class="eyebrow">Get a quote</div>
+        <h2 class="section-title">Make the next customer call you.</h2>
+        <p class="section-sub">Free quotes. Fast contact. A cleaner, more premium online presence that helps convert visitors into real jobs.</p>
+        <div class="quote-box">
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:07901008438">📞 Call Now</a>
+            <a class="btn btn-secondary" href="#services">View Services</a>
+          </div>
+        </div>
+        <div class="trust-row">
+          <div class="trust-chip">4.9 Google Rated</div>
+          <div class="trust-chip">Driveways</div>
+          <div class="trust-chip">Tree Work</div>
+          <div class="trust-chip">Landscaping</div>
+          <div class="trust-chip">Free Quotes</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-space"></div>
+  </main>
+
+  <div class="sticky-bar">
+    <a class="btn btn-primary" href="tel:07901008438">📞 Call 07901 008438</a>
+    <a class="btn btn-secondary" href="#quote">Free Quote</a>
+  </div>
+</body>
+</html>
